@@ -285,3 +285,47 @@ const updateYear = () => {
 };
 
 updateYear();
+
+async function submitCallbackRequest(data) {
+    const response = await fetch('https://formspree.io/f/YOUR_FORM_ID', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data)
+    });
+    
+    if (!response.ok) {
+        throw new Error('Submission failed');
+    }
+    
+    return response.json();
+}
+
+function doPost(e) {
+  try {
+    const sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
+    const data = JSON.parse(e.postData.contents);
+    
+    sheet.appendRow([
+      data.name,
+      data.phone,
+      data.email || 'Not provided',
+      data.service,
+      data.time,
+      data.message || 'None',
+      new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' })
+    ]);
+    
+    return ContentService.createTextOutput(JSON.stringify({
+      status: 'success',
+      message: 'Data saved'
+    })).setMimeType(ContentService.MimeType.JSON);
+    
+  } catch (error) {
+    return ContentService.createTextOutput(JSON.stringify({
+      status: 'error',
+      message: error.toString()
+    })).setMimeType(ContentService.MimeType.JSON);
+  }
+}
