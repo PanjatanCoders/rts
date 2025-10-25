@@ -289,6 +289,61 @@
         </div>
     </section>
 
+    <!-- Callback Request Modal -->
+    <div id="callbackModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Request a Callback</h3>
+                <button type="button" class="modal-close" id="closeModal" aria-label="Close modal">
+                    <i data-lucide="x"></i>
+                </button>
+            </div>
+            <form id="callbackForm" class="callback-form">
+                <div class="form-group">
+                    <label for="callbackName">Name *</label>
+                    <input type="text" id="callbackName" name="name" placeholder="Enter your name" required class="form-input">
+                </div>
+                <div class="form-group">
+                    <label for="callbackPhone">Phone Number *</label>
+                    <input type="tel" id="callbackPhone" name="phone" placeholder="+91 XXXXX XXXXX" required class="form-input">
+                </div>
+                <div class="form-group">
+                    <label for="callbackEmail">Email (Optional)</label>
+                    <input type="email" id="callbackEmail" name="email" placeholder="your.email@example.com" class="form-input">
+                </div>
+                <div class="form-group">
+                    <label for="callbackService">Service Interested In *</label>
+                    <select id="callbackService" name="service" required class="form-input">
+                        <option value="">Select a service</option>
+                        <option value="Mobile App Development">Mobile App Development</option>
+                        <option value="Website Development">Website Development</option>
+                        <option value="Desktop Applications">Desktop Applications</option>
+                        <option value="Process Automation">Process Automation</option>
+                        <option value="Test Framework Development">Test Framework Development</option>
+                        <option value="Deployment & Hosting">Deployment & Hosting</option>
+                        <option value="Flat/PG Management App">Flat/PG Management App</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="callbackTime">Preferred Callback Time *</label>
+                    <select id="callbackTime" name="time" required class="form-input">
+                        <option value="">Select time</option>
+                        <option value="Morning (9 AM - 12 PM)">Morning (9 AM - 12 PM)</option>
+                        <option value="Afternoon (12 PM - 3 PM)">Afternoon (12 PM - 3 PM)</option>
+                        <option value="Evening (3 PM - 6 PM)">Evening (3 PM - 6 PM)</option>
+                        <option value="Night (6 PM - 9 PM)">Night (6 PM - 9 PM)</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="callbackMessage">Additional Message (Optional)</label>
+                    <textarea id="callbackMessage" name="message" placeholder="Any specific requirements or questions..." rows="3" class="form-input"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary btn-full">Submit Request</button>
+            </form>
+        </div>
+    </div>
+
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
@@ -317,6 +372,8 @@
     </footer>
 
     <!-- JavaScript -->
+    <!-- Load config first (contains sensitive data, not in GitHub) -->
+    <script src="config.js"></script>
     <script src="script.js"></script>
     <script>
         // Initialize Lucide icons

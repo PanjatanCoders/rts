@@ -286,46 +286,209 @@ const updateYear = () => {
 
 updateYear();
 
-async function submitCallbackRequest(data) {
-    const response = await fetch('https://formspree.io/f/YOUR_FORM_ID', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(data)
-    });
-    
-    if (!response.ok) {
-        throw new Error('Submission failed');
+// ================================
+// CALLBACK REQUEST MODAL
+// ================================
+
+const callbackModal = document.getElementById('callbackModal');
+const callbackButtons = document.querySelectorAll('a[href="#contact"].btn-primary');
+const closeModalButton = document.getElementById('closeModal');
+const callbackForm = document.getElementById('callbackForm');
+
+// Open callback modal when "Request Callback" button is clicked
+callbackButtons.forEach(button => {
+    if (button.textContent.includes('Request Callback')) {
+        button.addEventListener('click', (e) => {
+            e.preventDefault();
+            openCallbackModal();
+        });
     }
-    
-    return response.json();
+});
+
+// Open modal function
+function openCallbackModal() {
+    callbackModal.style.display = 'flex';
+    document.body.style.overflow = 'hidden'; // Prevent background scrolling
+
+    // Re-initialize Lucide icons for the modal
+    setTimeout(() => {
+        lucide.createIcons();
+    }, 100);
 }
 
-function doPost(e) {
-  try {
-    const sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
-    const data = JSON.parse(e.postData.contents);
-    
-    sheet.appendRow([
-      data.name,
-      data.phone,
-      data.email || 'Not provided',
-      data.service,
-      data.time,
-      data.message || 'None',
-      new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' })
-    ]);
-    
-    return ContentService.createTextOutput(JSON.stringify({
-      status: 'success',
-      message: 'Data saved'
-    })).setMimeType(ContentService.MimeType.JSON);
-    
-  } catch (error) {
-    return ContentService.createTextOutput(JSON.stringify({
-      status: 'error',
-      message: error.toString()
-    })).setMimeType(ContentService.MimeType.JSON);
-  }
+// Close modal function
+function closeCallbackModal() {
+    callbackModal.style.display = 'none';
+    document.body.style.overflow = ''; // Restore scrolling
+    callbackForm.reset();
+}
+
+// Close modal when close button is clicked
+closeModalButton.addEventListener('click', closeCallbackModal);
+
+// Close modal when clicking outside the modal content
+callbackModal.addEventListener('click', (e) => {
+    if (e.target === callbackModal) {
+        closeCallbackModal();
+    }
+});
+
+// Close modal with Escape key
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && callbackModal.style.display === 'flex') {
+        closeCallbackModal();
+    }
+});
+
+// Handle callback form submission
+callbackForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    // Get form values
+    const formData = {
+        name: document.getElementById('callbackName').value.trim(),
+        phone: document.getElementById('callbackPhone').value.trim(),
+        email: document.getElementById('callbackEmail').value.trim(),
+        service: document.getElementById('callbackService').value,
+        time: document.getElementById('callbackTime').value,
+        message: document.getElementById('callbackMessage').value.trim()
+    };
+
+    // Validate required fields
+    if (!formData.name || !formData.phone || !formData.service || !formData.time) {
+        showAlert('Please fill in all required fields', 'error');
+        return;
+    }
+
+    // Validate phone number (basic validation for Indian numbers)
+    const phoneRegex = /^[+]?[(]?[0-9]{1,4}[)]?[-\s\.]?[(]?[0-9]{1,5}[)]?[-\s\.]?[0-9]{4,6}$/;
+    if (!phoneRegex.test(formData.phone)) {
+        showAlert('Please enter a valid phone number', 'error');
+        return;
+    }
+
+    // Validate email if provided
+    if (formData.email && !isValidEmail(formData.email)) {
+        showAlert('Please enter a valid email address', 'error');
+        return;
+    }
+
+    // Disable submit button to prevent multiple submissions
+    const submitButton = callbackForm.querySelector('button[type="submit"]');
+    const originalButtonText = submitButton.textContent;
+    submitButton.disabled = true;
+    submitButton.textContent = 'Submitting...';
+
+    try {
+        // Submit the callback request
+        await submitCallbackRequest(formData);
+
+        // Show success message
+        showAlert('Callback request submitted successfully! We will contact you soon.', 'success');
+
+        // Close modal and reset form
+        closeCallbackModal();
+
+    } catch (error) {
+        console.error('Error submitting callback request:', error);
+        showAlert('Failed to submit request. Please try again or contact us directly.', 'error');
+    } finally {
+        // Re-enable submit button
+        submitButton.disabled = false;
+        submitButton.textContent = originalButtonText;
+    }
+});
+
+// ================================
+// BACKEND CONFIGURATION
+// ================================
+
+// Load configuration from config.js (not committed to GitHub)
+// If config.js doesn't exist, use fallback values
+const WEB3FORMS_ACCESS_KEY = typeof CONFIG !== 'undefined' ? CONFIG.WEB3FORMS_ACCESS_KEY : 'YOUR_WEB3FORMS_ACCESS_KEY';
+const YOUR_EMAIL = typeof CONFIG !== 'undefined' ? CONFIG.YOUR_EMAIL : 'razatechnologyservices@gmail.com';
+const WHATSAPP_NUMBER = typeof CONFIG !== 'undefined' ? CONFIG.WHATSAPP_NUMBER : '917030400093';
+const USE_WHATSAPP_FOR_TESTING = typeof CONFIG !== 'undefined' ? CONFIG.USE_WHATSAPP_FOR_TESTING : true;
+
+// Submit callback request
+async function submitCallbackRequest(data) {
+    // Use WhatsApp during testing phase
+    if (USE_WHATSAPP_FOR_TESTING) {
+        console.log('📱 Testing mode: Using WhatsApp');
+        return submitViaWhatsApp(data);
+    }
+
+    // Check if Web3Forms is configured
+    if (WEB3FORMS_ACCESS_KEY === 'YOUR_WEB3FORMS_ACCESS_KEY') {
+        console.warn('⚠️ Web3Forms not configured. Using WhatsApp fallback.');
+        return submitViaWhatsApp(data);
+    }
+
+    // Try Web3Forms first
+    try {
+        const response = await fetch('https://api.web3forms.com/submit', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            },
+            body: JSON.stringify({
+                access_key: WEB3FORMS_ACCESS_KEY,
+                subject: `New Callback Request from ${data.name}`,
+                from_name: 'RTS Website - Callback Form',
+                to: YOUR_EMAIL,
+                name: data.name,
+                phone: data.phone,
+                email: data.email || 'Not provided',
+                service: data.service,
+                preferred_time: data.time,
+                message: data.message || 'No additional message',
+                // Custom formatting for better email
+                replyto: data.email || YOUR_EMAIL,
+                // Add custom HTML template
+                template: 'callback_request'
+            })
+        });
+
+        const result = await response.json();
+
+        if (result.success) {
+            console.log('✅ Callback request sent successfully via Web3Forms');
+            return {
+                status: 'success',
+                message: 'Request submitted successfully! We will contact you soon.'
+            };
+        } else {
+            throw new Error(result.message || 'Submission failed');
+        }
+
+    } catch (error) {
+        console.error('Web3Forms error:', error);
+        console.log('Falling back to WhatsApp...');
+        return submitViaWhatsApp(data);
+    }
+}
+
+// WhatsApp fallback method
+function submitViaWhatsApp(data) {
+    const message = `🔔 New Callback Request
+
+📝 Name: ${data.name}
+📞 Phone: ${data.phone}
+📧 Email: ${data.email || 'Not provided'}
+🛠️ Service: ${data.service}
+⏰ Preferred Time: ${data.time}
+💬 Message: ${data.message || 'None'}
+
+Please call back at your earliest convenience!`;
+
+    const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+
+    // Open WhatsApp in a new window
+    window.open(whatsappUrl, '_blank');
+
+    return {
+        status: 'success',
+        message: 'Request will be sent via WhatsApp'
+    };
 }
