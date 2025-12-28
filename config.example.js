@@ -12,10 +12,10 @@
 const CONFIG = {
     // Web3Forms Configuration
     // Get your free access key at: https://web3forms.com
-    WEB3FORMS_ACCESS_KEY: 'YOUR_WEB3FORMS_ACCESS_KEY',
+    WEB3FORMS_ACCESS_KEY: '3e8fe976-4af0-4fc8-9f71-72eade69775f',
 
     // Your Email Address
-    YOUR_EMAIL: 'your-email@example.com',
+    YOUR_EMAIL: 'razatechnologyservices@gmail.com',
 
     // WhatsApp Number (without + or spaces, e.g., 917030400093)
     WHATSAPP_NUMBER: '917030400093',
