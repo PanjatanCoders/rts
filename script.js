@@ -492,3 +492,61 @@ Please call back at your earliest convenience!`;
         message: 'Request will be sent via WhatsApp'
     };
 }
+
+// ================================
+// FLASH OFFERS COUNTDOWN TIMER
+// ================================
+
+function initCountdownTimer() {
+    // Set the offer end date (31st January 2025, 23:59:59)
+    const offerEndDate = new Date('2025-01-31T23:59:59').getTime();
+
+    const timerElements = {
+        days: document.getElementById('days'),
+        hours: document.getElementById('hours'),
+        minutes: document.getElementById('minutes'),
+        seconds: document.getElementById('seconds')
+    };
+
+    // Check if timer elements exist
+    if (!timerElements.days) return;
+
+    function updateCountdown() {
+        const now = new Date().getTime();
+        const distance = offerEndDate - now;
+
+        if (distance < 0) {
+            // Offer has expired
+            timerElements.days.textContent = '00';
+            timerElements.hours.textContent = '00';
+            timerElements.minutes.textContent = '00';
+            timerElements.seconds.textContent = '00';
+            return;
+        }
+
+        // Calculate time units
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        // Update DOM with zero-padded values
+        timerElements.days.textContent = String(days).padStart(2, '0');
+        timerElements.hours.textContent = String(hours).padStart(2, '0');
+        timerElements.minutes.textContent = String(minutes).padStart(2, '0');
+        timerElements.seconds.textContent = String(seconds).padStart(2, '0');
+    }
+
+    // Update countdown immediately
+    updateCountdown();
+
+    // Update every second
+    setInterval(updateCountdown, 1000);
+}
+
+// Initialize countdown timer when DOM is loaded
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initCountdownTimer);
+} else {
+    initCountdownTimer();
+}

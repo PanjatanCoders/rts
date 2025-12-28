@@ -235,6 +235,101 @@ img {
 }
 
 /* ================================
+   FLASH OFFERS BANNER
+   ================================ */
+
+.flash-offers-banner {
+    position: fixed;
+    top: 70px;
+    left: 0;
+    right: 0;
+    background: linear-gradient(135deg, #FF6B00 0%, #e55f00 100%);
+    z-index: 999;
+    padding: 0.75rem 0;
+    box-shadow: 0 4px 12px rgba(255, 107, 0, 0.3);
+    animation: flashBanner 2s ease-in-out infinite;
+}
+
+@keyframes flashBanner {
+    0%, 100% {
+        box-shadow: 0 4px 12px rgba(255, 107, 0, 0.3);
+    }
+    50% {
+        box-shadow: 0 4px 20px rgba(255, 107, 0, 0.6);
+    }
+}
+
+.flash-offers-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.flash-icon {
+    background-color: rgba(255, 255, 255, 0.2);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+}
+
+.flash-icon svg {
+    color: var(--accent-color);
+    width: 24px;
+    height: 24px;
+}
+
+.flash-text {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.flash-title {
+    color: var(--accent-color);
+    font-weight: 700;
+    font-size: 1rem;
+    font-family: 'Poppins', sans-serif;
+}
+
+.flash-subtitle {
+    color: rgba(255, 255, 255, 0.95);
+    font-size: 0.875rem;
+}
+
+.btn-flash {
+    background-color: var(--accent-color);
+    color: var(--primary-color);
+    padding: 0.625rem 1.5rem;
+    border-radius: 6px;
+    font-weight: 700;
+    font-size: 0.875rem;
+    transition: var(--transition);
+    white-space: nowrap;
+}
+
+.btn-flash:hover {
+    background-color: var(--secondary-color);
+    color: var(--accent-color);
+    transform: scale(1.05);
+}
+
+/* ================================
    HERO SECTION
    ================================ */
 
@@ -244,7 +339,7 @@ img {
     display: flex;
     align-items: center;
     background: linear-gradient(135deg, #1E1E1E 0%, #2D2D2D 50%, #8B3A00 100%);
-    padding-top: 70px;
+    padding-top: 120px;
 }
 
 .hero-background {
@@ -397,6 +492,319 @@ section {
 
 .service-description {
     color: var(--text-light);
+}
+
+/* ================================
+   FLASH OFFERS SECTION
+   ================================ */
+
+.flash-offers-section {
+    background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.flash-offers-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: radial-gradient(circle at 20% 50%, rgba(255, 107, 0, 0.1) 0%, transparent 50%),
+                      radial-gradient(circle at 80% 80%, rgba(255, 107, 0, 0.1) 0%, transparent 50%);
+    pointer-events: none;
+}
+
+.flash-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: linear-gradient(135deg, var(--primary-color) 0%, #e55f00 100%);
+    color: var(--accent-color);
+    padding: 0.5rem 1.5rem;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 0.875rem;
+    margin-bottom: 1rem;
+    box-shadow: 0 4px 15px rgba(255, 107, 0, 0.4);
+}
+
+.flash-badge svg {
+    width: 16px;
+    height: 16px;
+}
+
+.flash-offers-section .section-title {
+    color: var(--accent-color);
+}
+
+.flash-offers-section .section-description {
+    color: #CCCCCC;
+}
+
+.countdown-timer {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.timer-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgba(255, 107, 0, 0.1);
+    border: 2px solid var(--primary-color);
+    border-radius: 12px;
+    padding: 1rem 1.5rem;
+    min-width: 80px;
+}
+
+.timer-value {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    font-family: 'Poppins', sans-serif;
+    line-height: 1;
+}
+
+.timer-label {
+    font-size: 0.75rem;
+    color: #CCCCCC;
+    margin-top: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.flash-offers-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+    position: relative;
+    z-index: 1;
+}
+
+.flash-offer-card {
+    background-color: var(--accent-color);
+    border-radius: 16px;
+    padding: 2rem;
+    position: relative;
+    box-shadow: var(--shadow-lg);
+    transition: var(--transition);
+    border: 2px solid transparent;
+    overflow: hidden;
+}
+
+.flash-offer-card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, transparent, rgba(255, 107, 0, 0.1), transparent);
+    transform: rotate(45deg);
+    transition: var(--transition);
+    opacity: 0;
+}
+
+.flash-offer-card:hover::before {
+    opacity: 1;
+    animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+    0% {
+        transform: translateX(-100%) translateY(-100%) rotate(45deg);
+    }
+    100% {
+        transform: translateX(100%) translateY(100%) rotate(45deg);
+    }
+}
+
+.flash-offer-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(255, 107, 0, 0.3);
+    border-color: var(--primary-color);
+}
+
+.flash-offer-card.featured {
+    border: 3px solid var(--primary-color);
+    background: linear-gradient(135deg, #FFF9F5 0%, #FFFFFF 100%);
+}
+
+.offer-ribbon {
+    position: absolute;
+    top: 20px;
+    right: -35px;
+    background-color: #e74c3c;
+    color: var(--accent-color);
+    padding: 0.5rem 3rem;
+    font-weight: 700;
+    font-size: 0.875rem;
+    transform: rotate(45deg);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 10;
+}
+
+.featured-ribbon {
+    background: linear-gradient(135deg, #27ae60 0%, #229954 100%);
+}
+
+.offer-badge {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background: linear-gradient(135deg, var(--primary-color) 0%, #e55f00 100%);
+    color: var(--accent-color);
+    padding: 0.375rem 1rem;
+    border-radius: 20px;
+    font-weight: 700;
+    font-size: 0.875rem;
+    box-shadow: 0 2px 8px rgba(255, 107, 0, 0.4);
+}
+
+.offer-icon {
+    width: 64px;
+    height: 64px;
+    background: linear-gradient(135deg, #FFE5D1 0%, #FFD9B3 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+    box-shadow: 0 4px 12px rgba(255, 107, 0, 0.2);
+}
+
+.offer-icon svg {
+    color: var(--primary-color);
+    width: 32px;
+    height: 32px;
+}
+
+.offer-title {
+    font-size: 1.5rem;
+    text-align: center;
+    margin-bottom: 1rem;
+    color: var(--text-dark);
+}
+
+.offer-price {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.price-old {
+    font-size: 1.25rem;
+    color: var(--text-light);
+    text-decoration: line-through;
+}
+
+.price-new {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    font-family: 'Poppins', sans-serif;
+}
+
+.offer-features {
+    list-style: none;
+    margin-bottom: 2rem;
+    padding: 0;
+}
+
+.offer-features li {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.5rem 0;
+    color: var(--text-dark);
+    border-bottom: 1px solid #F0F0F0;
+}
+
+.offer-features li:last-child {
+    border-bottom: none;
+}
+
+.offer-features svg {
+    color: #27ae60;
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+}
+
+.btn-offer {
+    width: 100%;
+    background: linear-gradient(135deg, var(--primary-color) 0%, #e55f00 100%);
+    color: var(--accent-color);
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 1rem;
+    text-align: center;
+    transition: var(--transition);
+    box-shadow: 0 4px 12px rgba(255, 107, 0, 0.3);
+    border: none;
+}
+
+.btn-offer:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 107, 0, 0.4);
+}
+
+.btn-offer-featured {
+    background: linear-gradient(135deg, #27ae60 0%, #229954 100%);
+    box-shadow: 0 4px 12px rgba(39, 174, 96, 0.3);
+}
+
+.btn-offer-featured:hover {
+    box-shadow: 0 6px 20px rgba(39, 174, 96, 0.4);
+}
+
+.offer-validity {
+    text-align: center;
+    margin-top: 1rem;
+    font-size: 0.875rem;
+    color: var(--text-light);
+}
+
+.offer-cta {
+    margin-top: 4rem;
+    background: linear-gradient(135deg, var(--primary-color) 0%, #e55f00 100%);
+    border-radius: 20px;
+    padding: 3rem;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(255, 107, 0, 0.3);
+    position: relative;
+    z-index: 1;
+}
+
+.cta-content h3 {
+    color: var(--accent-color);
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.cta-content p {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1.125rem;
+    margin-bottom: 2rem;
+}
+
+.cta-content .btn-primary {
+    background-color: var(--accent-color);
+    color: var(--primary-color);
+}
+
+.cta-content .btn-primary:hover {
+    background-color: var(--secondary-color);
+    color: var(--accent-color);
 }
 
 /* ================================
@@ -661,33 +1069,59 @@ textarea.form-input {
     .nav-links {
         display: none;
     }
-    
+
     .hamburger {
         display: flex;
     }
-    
+
     .logo-text {
         display: none;
     }
-    
+
+    .flash-offers-content {
+        justify-content: center;
+    }
+
+    .flash-text {
+        text-align: center;
+    }
+
+    .countdown-timer {
+        gap: 1rem;
+        flex-wrap: wrap;
+    }
+
+    .timer-item {
+        min-width: 70px;
+        padding: 0.75rem 1rem;
+    }
+
+    .timer-value {
+        font-size: 1.5rem;
+    }
+
+    .flash-offers-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+
     .hero-title {
         font-size: 2.5rem;
     }
-    
+
     .hero-subtitle {
         font-size: 1.125rem;
     }
-    
+
     .section-title {
         font-size: 2rem;
     }
-    
+
     .services-grid,
     .features-grid,
     .testimonials-grid {
         grid-template-columns: 1fr;
     }
-    
+
     .contact-grid {
         grid-template-columns: 1fr;
     }
@@ -695,44 +1129,111 @@ textarea.form-input {
 
 /* Mobile */
 @media (max-width: 640px) {
+    .flash-offers-banner {
+        padding: 0.5rem 0;
+    }
+
+    .flash-offers-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 0.75rem;
+    }
+
+    .flash-icon {
+        width: 35px;
+        height: 35px;
+    }
+
+    .flash-icon svg {
+        width: 20px;
+        height: 20px;
+    }
+
+    .flash-title {
+        font-size: 0.875rem;
+    }
+
+    .flash-subtitle {
+        font-size: 0.75rem;
+    }
+
+    .btn-flash {
+        padding: 0.5rem 1.25rem;
+        font-size: 0.8rem;
+    }
+
+    .countdown-timer {
+        gap: 0.5rem;
+    }
+
+    .timer-item {
+        min-width: 60px;
+        padding: 0.5rem 0.75rem;
+    }
+
+    .timer-value {
+        font-size: 1.25rem;
+    }
+
+    .timer-label {
+        font-size: 0.65rem;
+    }
+
+    .flash-offers-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .offer-cta {
+        padding: 2rem 1.5rem;
+    }
+
+    .cta-content h3 {
+        font-size: 1.5rem;
+    }
+
+    .cta-content p {
+        font-size: 1rem;
+    }
+
     .hero-title {
         font-size: 2rem;
     }
-    
+
     .hero-subtitle {
         font-size: 1rem;
     }
-    
+
     .hero-buttons {
         flex-direction: column;
     }
-    
+
     .btn {
         width: 100%;
         justify-content: center;
     }
-    
+
     .section-title {
         font-size: 1.75rem;
     }
-    
+
     .section-description {
         font-size: 1rem;
     }
-    
+
     .product-card {
         padding: 2rem 1.5rem;
     }
-    
+
     .product-title {
         font-size: 1.875rem;
     }
-    
+
     .footer-content {
         flex-direction: column;
         text-align: center;
     }
-    
+
     .contact-info,
     .contact-form-container {
         padding: 1.5rem;
