@@ -499,7 +499,7 @@ Please call back at your earliest convenience!`;
 
 function initCountdownTimer() {
     // Set the offer end date (31st January 2026, 23:59:59)
-    const offerEndDate = new Date('2026-01-31T23:59:59').getTime();
+    const offerEndDate = new Date('2026-02-28T23:59:59').getTime();
 
     const timerElements = {
         days: document.getElementById('days'),
@@ -508,19 +508,40 @@ function initCountdownTimer() {
         seconds: document.getElementById('seconds')
     };
 
+    // Flash offer elements to hide when expired
+    const flashBanner = document.querySelector('.flash-offers-banner');
+    const flashSection = document.getElementById('flash-offers-section');
+    const flashNavLinks = document.querySelectorAll('a[href="#flash-offers-section"]');
+
     // Check if timer elements exist
     if (!timerElements.days) return;
+
+    function hideFlashOffers() {
+        // Hide the flash offers banner
+        if (flashBanner) {
+            flashBanner.style.display = 'none';
+        }
+        // Hide the flash offers section
+        if (flashSection) {
+            flashSection.style.display = 'none';
+        }
+        // Hide navigation links to flash offers
+        flashNavLinks.forEach(link => {
+            link.style.display = 'none';
+        });
+    }
 
     function updateCountdown() {
         const now = new Date().getTime();
         const distance = offerEndDate - now;
 
         if (distance < 0) {
-            // Offer has expired
+            // Offer has expired - hide flash offers
             timerElements.days.textContent = '00';
             timerElements.hours.textContent = '00';
             timerElements.minutes.textContent = '00';
             timerElements.seconds.textContent = '00';
+            hideFlashOffers();
             return;
         }
 
