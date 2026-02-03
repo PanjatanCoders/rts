@@ -32,6 +32,17 @@ mobileLinks.forEach(link => {
     });
 });
 
+// Mobile dropdown toggle
+const mobileServicesToggle = document.getElementById('mobileServicesToggle');
+const mobileServicesDropdown = document.getElementById('mobileServicesDropdown');
+
+if (mobileServicesToggle && mobileServicesDropdown) {
+    mobileServicesToggle.addEventListener('click', () => {
+        mobileServicesToggle.classList.toggle('active');
+        mobileServicesDropdown.classList.toggle('active');
+    });
+}
+
 // ================================
 // SMOOTH SCROLL & ACTIVE LINK
 // ================================

@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO Meta Tags -->
+    <title>Mobile App Development Services | Raza Technology Services - Pune</title>
+    <meta name="description" content="Professional mobile app development for iOS and Android in Pune. Cross-platform apps, native development, UI/UX design. Get a free consultation!">
+    <meta name="keywords" content="mobile app development, iOS app, Android app, cross-platform, React Native, Flutter, Pune">
+    <meta name="author" content="Raza Technology Services">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Mobile App Development Services | Raza Technology Services">
+    <meta property="og:description" content="Professional mobile app development for iOS and Android. Cross-platform solutions in Pune.">
+    <meta property="og:image" content="https://razatechnologyservices.com/rts.png">
+    <meta property="og:url" content="https://razatechnologyservices.com/services/mobile-app-development.html">
+
+    <!-- Favicon -->
+    <link rel="icon" href="../rts.png">
+    <link rel="apple-touch-icon" href="../rts.png">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../style.css">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        /* Service Page Specific Styles */
+        .service-hero {
+            background: linear-gradient(135deg, #0F172A 0%, #1E293B 50%, #134E4A 100%);
+            padding: 160px 0 80px;
+            text-align: center;
+        }
+
+        .service-hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .service-hero .breadcrumb {
+            color: var(--primary-light);
+            font-size: 0.875rem;
+            margin-bottom: 1rem;
+        }
+
+        .service-hero .breadcrumb a {
+            color: var(--text-lighter);
+            transition: var(--transition);
+        }
+
+        .service-hero .breadcrumb a:hover {
+            color: var(--primary-light);
+        }
+
+        .service-hero h1 {
+            color: var(--accent-color);
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .service-hero p {
+            color: #94A3B8;
+            font-size: 1.25rem;
+            line-height: 1.7;
+        }
+
+        .service-overview {
+            padding: 5rem 0;
+            background-color: var(--bg-white);
+        }
+
+        .overview-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .overview-content h2 {
+            font-size: 2.25rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-dark);
+        }
+
+        .overview-content p {
+            color: var(--text-light);
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .overview-features {
+            list-style: none;
+            padding: 0;
+            margin: 2rem 0;
+        }
+
+        .overview-features li {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.75rem 0;
+            color: var(--text-dark);
+            font-weight: 500;
+        }
+
+        .overview-features li svg {
+            color: var(--accent-2);
+            width: 22px;
+            height: 22px;
+            flex-shrink: 0;
+        }
+
+        .overview-image {
+            background: linear-gradient(135deg, var(--bg-light) 0%, #CCFBF1 100%);
+            border-radius: 20px;
+            padding: 3rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 400px;
+        }
+
+        .overview-image svg {
+            width: 200px;
+            height: 200px;
+            color: var(--primary-color);
+        }
+
+        .platforms-section {
+            padding: 5rem 0;
+            background-color: var(--bg-light);
+        }
+
+        .platforms-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .platform-card {
+            background-color: var(--bg-white);
+            padding: 2.5rem;
+            border-radius: 16px;
+            box-shadow: var(--shadow-md);
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .platform-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .platform-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #CCFBF1 0%, #99F6E4 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+        }
+
+        .platform-icon svg {
+            width: 40px;
+            height: 40px;
+            color: var(--primary-color);
+        }
+
+        .platform-card h3 {
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+        }
+
+        .platform-card p {
+            color: var(--text-light);
+            line-height: 1.7;
+        }
+
+        .process-section {
+            padding: 5rem 0;
+            background-color: var(--bg-white);
+        }
+
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .process-card {
+            background-color: var(--bg-light);
+            padding: 2rem;
+            border-radius: 16px;
+            position: relative;
+            transition: var(--transition);
+        }
+
+        .process-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .process-number {
+            position: absolute;
+            top: -15px;
+            left: 20px;
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            font-size: 1.125rem;
+        }
+
+        .process-card h3 {
+            margin-top: 1rem;
+            margin-bottom: 0.75rem;
+            color: var(--text-dark);
+        }
+
+        .process-card p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .features-section {
+            padding: 5rem 0;
+            background-color: var(--bg-light);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .feature-box {
+            background-color: var(--bg-white);
+            padding: 1.5rem;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            transition: var(--transition);
+        }
+
+        .feature-box:hover {
+            transform: translateX(5px);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .feature-box svg {
+            width: 24px;
+            height: 24px;
+            color: var(--primary-color);
+            flex-shrink: 0;
+        }
+
+        .feature-box span {
+            font-weight: 500;
+            color: var(--text-dark);
+        }
+
+        .cta-section {
+            padding: 5rem 0;
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            color: var(--accent-color);
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .cta-section p {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1.125rem;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+        }
+
+        .cta-section .btn-primary {
+            background-color: var(--accent-color);
+            color: var(--primary-color);
+        }
+
+        .cta-section .btn-primary:hover {
+            background-color: var(--secondary-color);
+            color: var(--accent-color);
+        }
+
+        @media (max-width: 968px) {
+            .overview-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .overview-image {
+                order: -1;
+                min-height: 300px;
+            }
+
+            .service-hero h1 {
+                font-size: 2.25rem;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .service-hero {
+                padding: 140px 0 60px;
+            }
+
+            .service-hero h1 {
+                font-size: 1.875rem;
+            }
+
+            .service-hero p {
+                font-size: 1rem;
+            }
+
+            .cta-section h2 {
+                font-size: 1.875rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav id="navbar" class="navbar scrolled">
+        <div class="container">
+            <div class="nav-content">
+                <a href="../index.html" class="logo">
+                    <span class="logo-rts">RTS</span>
+                    <span class="logo-text">| Raza Technology Services</span>
+                </a>
+
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="../index.html#home" class="nav-link">Home</a></li>
+                    <li><a href="../index.html#about" class="nav-link">About</a></li>
+                    <li class="nav-item">
+                        <span class="nav-link nav-item-dropdown active">
+                            Services
+                            <i data-lucide="chevron-down"></i>
+                        </span>
+                        <div class="dropdown-menu">
+                            <a href="website-development.html" class="dropdown-link">Website Development</a>
+                            <a href="mobile-app-development.html" class="dropdown-link">Mobile App Development</a>
+                            <a href="ecommerce-solutions.html" class="dropdown-link">Ecommerce Solutions</a>
+                            <a href="../index.html#services" class="dropdown-link">All Services</a>
+                        </div>
+                    </li>
+                    <li><a href="../portfolio.html" class="nav-link">Portfolio</a></li>
+                    <li><a href="../blog.html" class="nav-link">Blog</a></li>
+                    <li><a href="../index.html#contact" class="nav-link">Contact</a></li>
+                </ul>
+
+                <button class="hamburger" id="hamburger" aria-label="Menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="../index.html#home" class="mobile-link">Home</a>
+        <a href="../index.html#about" class="mobile-link">About</a>
+        <div class="mobile-dropdown-toggle" id="mobileServicesToggle">
+            Services
+            <i data-lucide="chevron-down"></i>
+        </div>
+        <div class="mobile-dropdown" id="mobileServicesDropdown">
+            <a href="website-development.html" class="mobile-dropdown-link">Website Development</a>
+            <a href="mobile-app-development.html" class="mobile-dropdown-link">Mobile App Development</a>
+            <a href="ecommerce-solutions.html" class="mobile-dropdown-link">Ecommerce Solutions</a>
+            <a href="../index.html#services" class="mobile-dropdown-link">All Services</a>
+        </div>
+        <a href="../portfolio.html" class="mobile-link">Portfolio</a>
+        <a href="../blog.html" class="mobile-link">Blog</a>
+        <a href="../index.html#contact" class="mobile-link">Contact</a>
+    </div>
+
+    <!-- Service Hero -->
+    <section class="service-hero">
+        <div class="container">
+            <div class="service-hero-content">
+                <p class="breadcrumb">
+                    <a href="../index.html">Home</a> / <a href="../index.html#services">Services</a> / <span>Mobile App Development</span>
+                </p>
+                <h1>Mobile App Development</h1>
+                <p>Transform your ideas into powerful mobile applications. We build native and cross-platform apps for iOS and Android that users love.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Service Overview -->
+    <section class="service-overview">
+        <div class="container">
+            <div class="overview-grid">
+                <div class="overview-content">
+                    <h2>Apps That Drive Results</h2>
+                    <p>In a mobile-first world, having a well-designed app can set your business apart. We develop custom mobile applications that deliver exceptional user experiences.</p>
+                    <p>From concept to deployment and beyond, our team handles every aspect of mobile app development with precision and care.</p>
+
+                    <ul class="overview-features">
+                        <li>
+                            <i data-lucide="check-circle"></i>
+                            Native iOS & Android development
+                        </li>
+                        <li>
+                            <i data-lucide="check-circle"></i>
+                            Cross-platform solutions (React Native, Flutter)
+                        </li>
+                        <li>
+                            <i data-lucide="check-circle"></i>
+                            Intuitive UI/UX design
+                        </li>
+                        <li>
+                            <i data-lucide="check-circle"></i>
+                            Backend API development
+                        </li>
+                        <li>
+                            <i data-lucide="check-circle"></i>
+                            App Store & Play Store deployment
+                        </li>
+                    </ul>
+
+                    <a href="../index.html#contact" class="btn btn-primary">
+                        Discuss Your App Idea
+                        <i data-lucide="arrow-right"></i>
+                    </a>
+                </div>
+                <div class="overview-image">
+                    <i data-lucide="smartphone"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Platforms -->
+    <section class="platforms-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Platforms We Support</h2>
+                <p class="section-description">Reach your users wherever they are</p>
+            </div>
+
+            <div class="platforms-grid">
+                <div class="platform-card">
+                    <div class="platform-icon">
+                        <i data-lucide="apple"></i>
+                    </div>
+                    <h3>iOS Development</h3>
+                    <p>Native iOS apps built with Swift for iPhone and iPad. Optimized for performance and following Apple's Human Interface Guidelines.</p>
+                </div>
+                <div class="platform-card">
+                    <div class="platform-icon">
+                        <i data-lucide="smartphone"></i>
+                    </div>
+                    <h3>Android Development</h3>
+                    <p>Native Android apps using Kotlin/Java. Compatible with a wide range of devices and Android versions.</p>
+                </div>
+                <div class="platform-card">
+                    <div class="platform-icon">
+                        <i data-lucide="layers"></i>
+                    </div>
+                    <h3>Cross-Platform</h3>
+                    <p>Single codebase for both iOS and Android using React Native or Flutter. Cost-effective and faster time to market.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Process -->
+    <section class="process-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Our Development Process</h2>
+                <p class="section-description">From idea to app store in structured phases</p>
+            </div>
+
+            <div class="process-grid">
+                <div class="process-card">
+                    <div class="process-number">1</div>
+                    <h3>Discovery</h3>
+                    <p>Understanding your vision, target users, and business goals to define the app's scope and features.</p>
+                </div>
+                <div class="process-card">
+                    <div class="process-number">2</div>
+                    <h3>UI/UX Design</h3>
+                    <p>Creating wireframes, prototypes, and beautiful interfaces that users will love to interact with.</p>
+                </div>
+                <div class="process-card">
+                    <div class="process-number">3</div>
+                    <h3>Development</h3>
+                    <p>Building your app with clean, scalable code using agile methodology with regular updates.</p>
+                </div>
+                <div class="process-card">
+                    <div class="process-number">4</div>
+                    <h3>Testing</h3>
+                    <p>Comprehensive testing on real devices to ensure your app is bug-free and performs well.</p>
+                </div>
+                <div class="process-card">
+                    <div class="process-number">5</div>
+                    <h3>Launch</h3>
+                    <p>App Store and Play Store submission, optimization, and post-launch support.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features We Build -->
+    <section class="features-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Features We Build</h2>
+                <p class="section-description">Common app features and integrations we specialize in</p>
+            </div>
+
+            <div class="features-grid">
+                <div class="feature-box">
+                    <i data-lucide="bell"></i>
+                    <span>Push Notifications</span>
+                </div>
+                <div class="feature-box">
+                    <i data-lucide="credit-card"></i>
+                    <span>Payment Integration</span>
+                </div>
+                <div class="feature-box">
+                    <i data-lucide="map-pin"></i>
+                    <span>GPS & Location Services</span>
+                </div>
+                <div class="feature-box">
+                    <i data-lucide="camera"></i>
+                    <span>Camera & Media</span>
+                </div>
+                <div class="feature-box">
+                    <i data-lucide="users"></i>
+                    <span>Social Login</span>
+                </div>
+                <div class="feature-box">
+                    <i data-lucide="message-circle"></i>
+                    <span>In-App Chat</span>
+                </div>
+                <div class="feature-box">
+                    <i data-lucide="bar-chart-3"></i>
+                    <span>Analytics Dashboard</span>
+                </div>
+                <div class="feature-box">
+                    <i data-lucide="cloud"></i>
+                    <span>Cloud Sync</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Have an App Idea?</h2>
+            <p>Let's turn your vision into a reality. Get a free consultation to discuss your mobile app project.</p>
+            <a href="../index.html#contact" class="btn btn-primary btn-large">
+                Start Your App Project
+                <i data-lucide="arrow-right"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <p>&copy; 2026 Raza Technology Services. All rights reserved.</p>
+                </div>
+            </div>
+            <div class="footer-tagline">
+                <p>Made with care in Pune, for the world.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+
+        // Navbar
+        const hamburger = document.getElementById('hamburger');
+        const mobileMenu = document.getElementById('mobileMenu');
+
+        hamburger.addEventListener('click', () => {
+            mobileMenu.classList.toggle('active');
+            hamburger.classList.toggle('active');
+        });
+
+        // Mobile dropdown
+        const mobileServicesToggle = document.getElementById('mobileServicesToggle');
+        const mobileServicesDropdown = document.getElementById('mobileServicesDropdown');
+
+        if (mobileServicesToggle && mobileServicesDropdown) {
+            mobileServicesToggle.addEventListener('click', () => {
+                mobileServicesToggle.classList.toggle('active');
+                mobileServicesDropdown.classList.toggle('active');
+            });
+        }
+    </script>
+</body>
+
+</html>

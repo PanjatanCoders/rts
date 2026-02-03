@@ -148,12 +148,23 @@
                 </div>
 
                 <ul class="nav-links" id="navLinks">
-                    <li><a href="#home" class="nav-link active">Home</a></li>
-                    <li><a href="#about" class="nav-link">About</a></li>
-                    <li><a href="#services" class="nav-link">Services</a></li>
-                    <li><a href="#flash-offers-section" class="nav-link">Flash Offers</a></li>
-                    <li><a href="#product" class="nav-link">Product</a></li>
-                    <li><a href="#contact" class="nav-link">Contact</a></li>
+                    <li><a href="index.html#home" class="nav-link active">Home</a></li>
+                    <li><a href="index.html#about" class="nav-link">About</a></li>
+                    <li class="nav-item">
+                        <span class="nav-link nav-item-dropdown">
+                            Services
+                            <i data-lucide="chevron-down"></i>
+                        </span>
+                        <div class="dropdown-menu">
+                            <a href="services/website-development.html" class="dropdown-link">Website Development</a>
+                            <a href="services/mobile-app-development.html" class="dropdown-link">Mobile App Development</a>
+                            <a href="services/ecommerce-solutions.html" class="dropdown-link">Ecommerce Solutions</a>
+                            <a href="index.html#services" class="dropdown-link">All Services</a>
+                        </div>
+                    </li>
+                    <li><a href="portfolio.html" class="nav-link">Portfolio</a></li>
+                    <li><a href="blog.html" class="nav-link">Blog</a></li>
+                    <li><a href="index.html#contact" class="nav-link">Contact</a></li>
                 </ul>
 
                 <button class="hamburger" id="hamburger" aria-label="Menu">
@@ -167,12 +178,21 @@
 
     <!-- Mobile Menu -->
     <div class="mobile-menu" id="mobileMenu">
-        <a href="#home" class="mobile-link">Home</a>
-        <a href="#about" class="mobile-link">About</a>
-        <a href="#services" class="mobile-link">Services</a>
-        <a href="#flash-offers-section" class="mobile-link">Flash Offers</a>
-        <a href="#product" class="mobile-link">Product</a>
-        <a href="#contact" class="mobile-link">Contact</a>
+        <a href="index.html#home" class="mobile-link">Home</a>
+        <a href="index.html#about" class="mobile-link">About</a>
+        <div class="mobile-dropdown-toggle" id="mobileServicesToggle">
+            Services
+            <i data-lucide="chevron-down"></i>
+        </div>
+        <div class="mobile-dropdown" id="mobileServicesDropdown">
+            <a href="services/website-development.html" class="mobile-dropdown-link">Website Development</a>
+            <a href="services/mobile-app-development.html" class="mobile-dropdown-link">Mobile App Development</a>
+            <a href="services/ecommerce-solutions.html" class="mobile-dropdown-link">Ecommerce Solutions</a>
+            <a href="index.html#services" class="mobile-dropdown-link">All Services</a>
+        </div>
+        <a href="portfolio.html" class="mobile-link">Portfolio</a>
+        <a href="blog.html" class="mobile-link">Blog</a>
+        <a href="index.html#contact" class="mobile-link">Contact</a>
     </div>
 
     <!-- Flash Offers Banner -->

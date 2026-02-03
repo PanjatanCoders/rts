@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO Meta Tags -->
+    <title>Website Development Services | Raza Technology Services - Pune</title>
+    <meta name="description" content="Professional website development services in Pune. Custom responsive websites, SEO optimized, mobile-friendly designs. Get a free quote today!">
+    <meta name="keywords" content="website development, web design, responsive websites, SEO, Pune, custom websites">
+    <meta name="author" content="Raza Technology Services">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Website Development Services | Raza Technology Services">
+    <meta property="og:description" content="Professional website development services in Pune. Custom responsive websites built with modern technologies.">
+    <meta property="og:image" content="https://razatechnologyservices.com/rts.png">
+    <meta property="og:url" content="https://razatechnologyservices.com/services/website-development.html">
+
+    <!-- Favicon -->
+    <link rel="icon" href="../rts.png">
+    <link rel="apple-touch-icon" href="../rts.png">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../style.css">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        /* Service Page Specific Styles */
+        .service-hero {
+            background: linear-gradient(135deg, #0F172A 0%, #1E293B 50%, #134E4A 100%);
+            padding: 160px 0 80px;
+            text-align: center;
+        }
+
+        .service-hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .service-hero .breadcrumb {
+            color: var(--primary-light);
+            font-size: 0.875rem;
+            margin-bottom: 1rem;
+        }
+
+        .service-hero .breadcrumb a {
+            color: var(--text-lighter);
+            transition: var(--transition);
+        }
+
+        .service-hero .breadcrumb a:hover {
+            color: var(--primary-light);
+        }
+
+        .service-hero h1 {
+            color: var(--accent-color);
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .service-hero p {
+            color: #94A3B8;
+            font-size: 1.25rem;
+            line-height: 1.7;
+        }
+
+        .service-overview {
+            padding: 5rem 0;
+            background-color: var(--bg-white);
+        }
+
+        .overview-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .overview-content h2 {
+            font-size: 2.25rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-dark);
+        }
+
+        .overview-content p {
+            color: var(--text-light);
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .overview-features {
+            list-style: none;
+            padding: 0;
+            margin: 2rem 0;
+        }
+
+        .overview-features li {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.75rem 0;
+            color: var(--text-dark);
+            font-weight: 500;
+        }
+
+        .overview-features li svg {
+            color: var(--accent-2);
+            width: 22px;
+            height: 22px;
+            flex-shrink: 0;
+        }
+
+        .overview-image {
+            background: linear-gradient(135deg, var(--bg-light) 0%, #CCFBF1 100%);
+            border-radius: 20px;
+            padding: 3rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 400px;
+        }
+
+        .overview-image svg {
+            width: 200px;
+            height: 200px;
+            color: var(--primary-color);
+        }
+
+        .process-section {
+            padding: 5rem 0;
+            background-color: var(--bg-light);
+        }
+
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .process-card {
+            background-color: var(--bg-white);
+            padding: 2rem;
+            border-radius: 16px;
+            box-shadow: var(--shadow-md);
+            position: relative;
+            transition: var(--transition);
+        }
+
+        .process-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .process-number {
+            position: absolute;
+            top: -15px;
+            left: 20px;
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            font-size: 1.125rem;
+        }
+
+        .process-card h3 {
+            margin-top: 1rem;
+            margin-bottom: 0.75rem;
+            color: var(--text-dark);
+        }
+
+        .process-card p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .tech-section {
+            padding: 5rem 0;
+            background-color: var(--bg-white);
+        }
+
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .tech-item {
+            text-align: center;
+            padding: 1.5rem;
+            border-radius: 12px;
+            background-color: var(--bg-light);
+            transition: var(--transition);
+        }
+
+        .tech-item:hover {
+            background-color: #CCFBF1;
+            transform: translateY(-3px);
+        }
+
+        .tech-item svg {
+            width: 48px;
+            height: 48px;
+            color: var(--primary-color);
+            margin-bottom: 0.75rem;
+        }
+
+        .tech-item span {
+            display: block;
+            font-weight: 600;
+            color: var(--text-dark);
+            font-size: 0.9rem;
+        }
+
+        .faq-section {
+            padding: 5rem 0;
+            background-color: var(--bg-light);
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 3rem auto 0;
+        }
+
+        .faq-item {
+            background-color: var(--bg-white);
+            border-radius: 12px;
+            margin-bottom: 1rem;
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .faq-question {
+            width: 100%;
+            padding: 1.25rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: none;
+            border: none;
+            cursor: pointer;
+            text-align: left;
+            font-weight: 600;
+            font-size: 1rem;
+            color: var(--text-dark);
+            transition: var(--transition);
+        }
+
+        .faq-question:hover {
+            background-color: var(--bg-light);
+        }
+
+        .faq-question svg {
+            width: 20px;
+            height: 20px;
+            color: var(--primary-color);
+            transition: var(--transition);
+        }
+
+        .faq-item.active .faq-question svg {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 300px;
+        }
+
+        .faq-answer p {
+            padding: 0 1.5rem 1.25rem;
+            color: var(--text-light);
+            line-height: 1.7;
+        }
+
+        .cta-section {
+            padding: 5rem 0;
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            color: var(--accent-color);
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .cta-section p {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1.125rem;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+        }
+
+        .cta-section .btn-primary {
+            background-color: var(--accent-color);
+            color: var(--primary-color);
+        }
+
+        .cta-section .btn-primary:hover {
+            background-color: var(--secondary-color);
+            color: var(--accent-color);
+        }
+
+        @media (max-width: 968px) {
+            .overview-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .overview-image {
+                order: -1;
+                min-height: 300px;
+            }
+
+            .service-hero h1 {
+                font-size: 2.25rem;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .service-hero {
+                padding: 140px 0 60px;
+            }
+
+            .service-hero h1 {
+                font-size: 1.875rem;
+            }
+
+            .service-hero p {
+                font-size: 1rem;
+            }
+
+            .cta-section h2 {
+                font-size: 1.875rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav id="navbar" class="navbar scrolled">
+        <div class="container">
+            <div class="nav-content">
+                <a href="../index.html" class="logo">
+                    <span class="logo-rts">RTS</span>
+                    <span class="logo-text">| Raza Technology Services</span>
+                </a>
+
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="../index.html#home" class="nav-link">Home</a></li>
+                    <li><a href="../index.html#about" class="nav-link">About</a></li>
+                    <li class="nav-item">
+                        <span class="nav-link nav-item-dropdown active">
+                            Services
+                            <i data-lucide="chevron-down"></i>
+                        </span>
+                        <div class="dropdown-menu">
+                            <a href="website-development.html" class="dropdown-link">Website Development</a>
+                            <a href="mobile-app-development.html" class="dropdown-link">Mobile App Development</a>
+                            <a href="ecommerce-solutions.html" class="dropdown-link">Ecommerce Solutions</a>
+                            <a href="../index.html#services" class="dropdown-link">All Services</a>
+                        </div>
+                    </li>
+                    <li><a href="../portfolio.html" class="nav-link">Portfolio</a></li>
+                    <li><a href="../blog.html" class="nav-link">Blog</a></li>
+                    <li><a href="../index.html#contact" class="nav-link">Contact</a></li>
+                </ul>
+
+                <button class="hamburger" id="hamburger" aria-label="Menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="../index.html#home" class="mobile-link">Home</a>
+        <a href="../index.html#about" class="mobile-link">About</a>
+        <div class="mobile-dropdown-toggle" id="mobileServicesToggle">
+            Services
+            <i data-lucide="chevron-down"></i>
+        </div>
+        <div class="mobile-dropdown" id="mobileServicesDropdown">
+            <a href="website-development.html" class="mobile-dropdown-link">Website Development</a>
+            <a href="mobile-app-development.html" class="mobile-dropdown-link">Mobile App Development</a>
+            <a href="ecommerce-solutions.html" class="mobile-dropdown-link">Ecommerce Solutions</a>
+            <a href="../index.html#services" class="mobile-dropdown-link">All Services</a>
+        </div>
+        <a href="../portfolio.html" class="mobile-link">Portfolio</a>
+        <a href="../blog.html" class="mobile-link">Blog</a>
+        <a href="../index.html#contact" class="mobile-link">Contact</a>
+    </div>
+
+    <!-- Service Hero -->
+    <section class="service-hero">
+        <div class="container">
+            <div class="service-hero-content">
+                <p class="breadcrumb">
+                    <a href="../index.html">Home</a> / <a href="../index.html#services">Services</a> / <span>Website Development</span>
+                </p>
+                <h1>Website Development</h1>
+                <p>We build modern, responsive, and SEO-optimized websites that help your business grow online. From simple landing pages to complex web applications.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Service Overview -->
+    <section class="service-overview">
+        <div class="container">
+            <div class="overview-grid">
+                <div class="overview-content">
+                    <h2>Build Your Digital Presence</h2>
+                    <p>In today's digital age, your website is often the first impression customers have of your business. We create websites that not only look stunning but also perform exceptionally well.</p>
+                    <p>Our team combines creative design with technical expertise to deliver websites that are fast, secure, and easy to manage.</p>
+
+                    <ul class="overview-features">
+                        <li>
+                            <i data-lucide="check-circle"></i>
+                            Responsive design for all devices
+                        </li>
+                        <li>
+                            <i data-lucide="check-circle"></i>
+                            SEO optimized from the ground up
+                        </li>
+                        <li>
+                            <i data-lucide="check-circle"></i>
+                            Fast loading speeds
+                        </li>
+                        <li>
+                            <i data-lucide="check-circle"></i>
+                            Secure and reliable hosting
+                        </li>
+                        <li>
+                            <i data-lucide="check-circle"></i>
+                            Easy content management
+                        </li>
+                    </ul>
+
+                    <a href="../index.html#contact" class="btn btn-primary">
+                        Get a Free Quote
+                        <i data-lucide="arrow-right"></i>
+                    </a>
+                </div>
+                <div class="overview-image">
+                    <i data-lucide="layout"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Process -->
+    <section class="process-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Our Development Process</h2>
+                <p class="section-description">A streamlined approach to deliver your website on time and on budget</p>
+            </div>
+
+            <div class="process-grid">
+                <div class="process-card">
+                    <div class="process-number">1</div>
+                    <h3>Discovery & Planning</h3>
+                    <p>We start by understanding your business goals, target audience, and requirements to create a comprehensive project plan.</p>
+                </div>
+                <div class="process-card">
+                    <div class="process-number">2</div>
+                    <h3>Design & Prototype</h3>
+                    <p>Our designers create wireframes and visual mockups for your approval before any coding begins.</p>
+                </div>
+                <div class="process-card">
+                    <div class="process-number">3</div>
+                    <h3>Development</h3>
+                    <p>Our developers bring the designs to life using modern technologies, ensuring clean and maintainable code.</p>
+                </div>
+                <div class="process-card">
+                    <div class="process-number">4</div>
+                    <h3>Testing & QA</h3>
+                    <p>Rigorous testing across devices and browsers to ensure your website works flawlessly everywhere.</p>
+                </div>
+                <div class="process-card">
+                    <div class="process-number">5</div>
+                    <h3>Launch & Support</h3>
+                    <p>We deploy your website and provide ongoing support to keep it running smoothly.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technologies -->
+    <section class="tech-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Technologies We Use</h2>
+                <p class="section-description">Modern tools and frameworks for building robust websites</p>
+            </div>
+
+            <div class="tech-grid">
+                <div class="tech-item">
+                    <i data-lucide="file-code"></i>
+                    <span>HTML5</span>
+                </div>
+                <div class="tech-item">
+                    <i data-lucide="palette"></i>
+                    <span>CSS3</span>
+                </div>
+                <div class="tech-item">
+                    <i data-lucide="braces"></i>
+                    <span>JavaScript</span>
+                </div>
+                <div class="tech-item">
+                    <i data-lucide="atom"></i>
+                    <span>React</span>
+                </div>
+                <div class="tech-item">
+                    <i data-lucide="server"></i>
+                    <span>Node.js</span>
+                </div>
+                <div class="tech-item">
+                    <i data-lucide="database"></i>
+                    <span>MongoDB</span>
+                </div>
+                <div class="tech-item">
+                    <i data-lucide="wordpress"></i>
+                    <span>WordPress</span>
+                </div>
+                <div class="tech-item">
+                    <i data-lucide="cloud"></i>
+                    <span>AWS</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Frequently Asked Questions</h2>
+                <p class="section-description">Common questions about our website development services</p>
+            </div>
+
+            <div class="faq-container">
+                <div class="faq-item">
+                    <button class="faq-question">
+                        How long does it take to build a website?
+                        <i data-lucide="chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>The timeline depends on the complexity of the project. A simple landing page can be completed in 1-2 weeks, while a full business website typically takes 4-6 weeks. Complex web applications may take longer.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        Do you provide hosting and domain services?
+                        <i data-lucide="chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Yes! We offer hosting solutions and can help you register a domain name. We also provide 1 year of free hosting with our website packages.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        Will my website be mobile-friendly?
+                        <i data-lucide="chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Absolutely! All our websites are built with a mobile-first approach, ensuring they look and work great on smartphones, tablets, and desktops.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        Can I update the website content myself?
+                        <i data-lucide="chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Yes! We can integrate a content management system (CMS) like WordPress that allows you to easily update text, images, and other content without technical knowledge.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        What about SEO and search engine rankings?
+                        <i data-lucide="chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>SEO is built into our development process. We implement proper HTML structure, meta tags, fast loading speeds, and other on-page SEO best practices to help your site rank well.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Ready to Build Your Website?</h2>
+            <p>Get a free consultation and quote for your website project. Let's create something amazing together.</p>
+            <a href="../index.html#contact" class="btn btn-primary btn-large">
+                Start Your Project
+                <i data-lucide="arrow-right"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <p>&copy; 2026 Raza Technology Services. All rights reserved.</p>
+                </div>
+            </div>
+            <div class="footer-tagline">
+                <p>Made with care in Pune, for the world.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+
+        // Navbar
+        const navbar = document.getElementById('navbar');
+        const hamburger = document.getElementById('hamburger');
+        const mobileMenu = document.getElementById('mobileMenu');
+
+        hamburger.addEventListener('click', () => {
+            mobileMenu.classList.toggle('active');
+            hamburger.classList.toggle('active');
+        });
+
+        // Mobile dropdown
+        const mobileServicesToggle = document.getElementById('mobileServicesToggle');
+        const mobileServicesDropdown = document.getElementById('mobileServicesDropdown');
+
+        if (mobileServicesToggle && mobileServicesDropdown) {
+            mobileServicesToggle.addEventListener('click', () => {
+                mobileServicesToggle.classList.toggle('active');
+                mobileServicesDropdown.classList.toggle('active');
+            });
+        }
+
+        // FAQ Accordion
+        const faqItems = document.querySelectorAll('.faq-item');
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+            question.addEventListener('click', () => {
+                // Close other items
+                faqItems.forEach(other => {
+                    if (other !== item) {
+                        other.classList.remove('active');
+                    }
+                });
+                // Toggle current item
+                item.classList.toggle('active');
+            });
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO Meta Tags -->
+    <title>Ecommerce Solutions | Raza Technology Services - Pune</title>
+    <meta name="description" content="Complete ecommerce solutions in Pune. Custom online stores, payment integration, inventory management. Launch your online business today!">
+    <meta name="keywords" content="ecommerce development, online store, shopping cart, payment gateway, Pune, WooCommerce, Shopify">
+    <meta name="author" content="Raza Technology Services">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Ecommerce Solutions | Raza Technology Services">
+    <meta property="og:description" content="Complete ecommerce solutions - custom online stores, payment integration, inventory management.">
+    <meta property="og:image" content="https://razatechnologyservices.com/rts.png">
+    <meta property="og:url" content="https://razatechnologyservices.com/services/ecommerce-solutions.html">
+
+    <!-- Favicon -->
+    <link rel="icon" href="../rts.png">
+    <link rel="apple-touch-icon" href="../rts.png">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../style.css">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        /* Service Page Specific Styles */
+        .service-hero {
+            background: linear-gradient(135deg, #0F172A 0%, #1E293B 50%, #134E4A 100%);
+            padding: 160px 0 80px;
+            text-align: center;
+        }
+
+        .service-hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .service-hero .breadcrumb {
+            color: var(--primary-light);
+            font-size: 0.875rem;
+            margin-bottom: 1rem;
+        }
+
+        .service-hero .breadcrumb a {
+            color: var(--text-lighter);
+            transition: var(--transition);
+        }
+
+        .service-hero .breadcrumb a:hover {
+            color: var(--primary-light);
+        }
+
+        .service-hero h1 {
+            color: var(--accent-color);
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .service-hero p {
+            color: #94A3B8;
+            font-size: 1.25rem;
+            line-height: 1.7;
+        }
+
+        .service-overview {
+            padding: 5rem 0;
+            background-color: var(--bg-white);
+        }
+
+        .overview-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .overview-content h2 {
+            font-size: 2.25rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-dark);
+        }
+
+        .overview-content p {
+            color: var(--text-light);
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .overview-features {
+            list-style: none;
+            padding: 0;
+            margin: 2rem 0;
+        }
+
+        .overview-features li {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.75rem 0;
+            color: var(--text-dark);
+            font-weight: 500;
+        }
+
+        .overview-features li svg {
+            color: var(--accent-2);
+            width: 22px;
+            height: 22px;
+            flex-shrink: 0;
+        }
+
+        .overview-image {
+            background: linear-gradient(135deg, var(--bg-light) 0%, #CCFBF1 100%);
+            border-radius: 20px;
+            padding: 3rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 400px;
+        }
+
+        .overview-image svg {
+            width: 200px;
+            height: 200px;
+            color: var(--primary-color);
+        }
+
+        .solutions-section {
+            padding: 5rem 0;
+            background-color: var(--bg-light);
+        }
+
+        .solutions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .solution-card {
+            background-color: var(--bg-white);
+            padding: 2.5rem;
+            border-radius: 16px;
+            box-shadow: var(--shadow-md);
+            transition: var(--transition);
+            border: 2px solid transparent;
+        }
+
+        .solution-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--primary-color);
+        }
+
+        .solution-icon {
+            width: 64px;
+            height: 64px;
+            background: linear-gradient(135deg, #CCFBF1 0%, #99F6E4 100%);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .solution-icon svg {
+            width: 32px;
+            height: 32px;
+            color: var(--primary-color);
+        }
+
+        .solution-card h3 {
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+        }
+
+        .solution-card p {
+            color: var(--text-light);
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        .solution-features {
+            list-style: none;
+            padding: 0;
+        }
+
+        .solution-features li {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.35rem 0;
+            font-size: 0.9rem;
+            color: var(--text-dark);
+        }
+
+        .solution-features li svg {
+            width: 16px;
+            height: 16px;
+            color: var(--accent-2);
+        }
+
+        .integrations-section {
+            padding: 5rem 0;
+            background-color: var(--bg-white);
+        }
+
+        .integrations-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .integration-item {
+            text-align: center;
+            padding: 2rem 1rem;
+            border-radius: 12px;
+            background-color: var(--bg-light);
+            transition: var(--transition);
+        }
+
+        .integration-item:hover {
+            background-color: #CCFBF1;
+            transform: translateY(-3px);
+        }
+
+        .integration-item svg {
+            width: 40px;
+            height: 40px;
+            color: var(--primary-color);
+            margin-bottom: 0.75rem;
+        }
+
+        .integration-item span {
+            display: block;
+            font-weight: 600;
+            color: var(--text-dark);
+            font-size: 0.875rem;
+        }
+
+        .benefits-section {
+            padding: 5rem 0;
+            background-color: var(--bg-light);
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .benefit-card {
+            background-color: var(--bg-white);
+            padding: 2rem;
+            border-radius: 16px;
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .benefit-card svg {
+            width: 48px;
+            height: 48px;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .benefit-card h3 {
+            font-size: 1.125rem;
+            margin-bottom: 0.75rem;
+            color: var(--text-dark);
+        }
+
+        .benefit-card p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .cta-section {
+            padding: 5rem 0;
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            color: var(--accent-color);
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .cta-section p {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1.125rem;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+        }
+
+        .cta-section .btn-primary {
+            background-color: var(--accent-color);
+            color: var(--primary-color);
+        }
+
+        .cta-section .btn-primary:hover {
+            background-color: var(--secondary-color);
+            color: var(--accent-color);
+        }
+
+        @media (max-width: 968px) {
+            .overview-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .overview-image {
+                order: -1;
+                min-height: 300px;
+            }
+
+            .service-hero h1 {
+                font-size: 2.25rem;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .service-hero {
+                padding: 140px 0 60px;
+            }
+
+            .service-hero h1 {
+                font-size: 1.875rem;
+            }
+
+            .service-hero p {
+                font-size: 1rem;
+            }
+
+            .cta-section h2 {
+                font-size: 1.875rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav id="navbar" class="navbar scrolled">
+        <div class="container">
+            <div class="nav-content">
+                <a href="../index.html" class="logo">
+                    <span class="logo-rts">RTS</span>
+                    <span class="logo-text">| Raza Technology Services</span>
+                </a>
+
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="../index.html#home" class="nav-link">Home</a></li>
+                    <li><a href="../index.html#about" class="nav-link">About</a></li>
+                    <li class="nav-item">
+                        <span class="nav-link nav-item-dropdown active">
+                            Services
+                            <i data-lucide="chevron-down"></i>
+                        </span>
+                        <div class="dropdown-menu">
+                            <a href="website-development.html" class="dropdown-link">Website Development</a>
+                            <a href="mobile-app-development.html" class="dropdown-link">Mobile App Development</a>
+                            <a href="ecommerce-solutions.html" class="dropdown-link">Ecommerce Solutions</a>
+                            <a href="../index.html#services" class="dropdown-link">All Services</a>
+                        </div>
+                    </li>
+                    <li><a href="../portfolio.html" class="nav-link">Portfolio</a></li>
+                    <li><a href="../blog.html" class="nav-link">Blog</a></li>
+                    <li><a href="../index.html#contact" class="nav-link">Contact</a></li>
+                </ul>
+
+                <button class="hamburger" id="hamburger" aria-label="Menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="../index.html#home" class="mobile-link">Home</a>
+        <a href="../index.html#about" class="mobile-link">About</a>
+        <div class="mobile-dropdown-toggle" id="mobileServicesToggle">
+            Services
+            <i data-lucide="chevron-down"></i>
+        </div>
+        <div class="mobile-dropdown" id="mobileServicesDropdown">
+            <a href="website-development.html" class="mobile-dropdown-link">Website Development</a>
+            <a href="mobile-app-development.html" class="mobile-dropdown-link">Mobile App Development</a>
+            <a href="ecommerce-solutions.html" class="mobile-dropdown-link">Ecommerce Solutions</a>
+            <a href="../index.html#services" class="mobile-dropdown-link">All Services</a>
+        </div>
+        <a href="../portfolio.html" class="mobile-link">Portfolio</a>
+        <a href="../blog.html" class="mobile-link">Blog</a>
+        <a href="../index.html#contact" class="mobile-link">Contact</a>
+    </div>
+
+    <!-- Service Hero -->
+    <section class="service-hero">
+        <div class="container">
+            <div class="service-hero-content">
+                <p class="breadcrumb">
+                    <a href="../index.html">Home</a> / <a href="../index.html#services">Services</a> / <span>Ecommerce Solutions</span>
+                </p>
+                <h1>Ecommerce Solutions</h1>
+                <p>Launch and grow your online business with our comprehensive ecommerce solutions. From simple online stores to complex multi-vendor marketplaces.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Service Overview -->
+    <section class="service-overview">
+        <div class="container">
+            <div class="overview-grid">
+                <div class="overview-content">
+                    <h2>Sell Online, Grow Faster</h2>
+                    <p>The ecommerce landscape is booming, and there's never been a better time to take your business online. We build custom ecommerce solutions that are designed to convert visitors into customers.</p>
+                    <p>Whether you're starting fresh or upgrading an existing store, we have the expertise to deliver a solution that fits your business perfectly.</p>
+
+                    <ul class="overview-features">
+                        <li>
+                            <i data-lucide="check-circle"></i>
+                            Custom online store design
+                        </li>
+                        <li>
+                            <i data-lucide="check-circle"></i>
+                            Secure payment gateway integration
+                        </li>
+                        <li>
+                            <i data-lucide="check-circle"></i>
+                            Inventory & order management
+                        </li>
+                        <li>
+                            <i data-lucide="check-circle"></i>
+                            Mobile-optimized shopping experience
+                        </li>
+                        <li>
+                            <i data-lucide="check-circle"></i>
+                            Analytics & reporting dashboard
+                        </li>
+                    </ul>
+
+                    <a href="../index.html#contact" class="btn btn-primary">
+                        Start Your Online Store
+                        <i data-lucide="arrow-right"></i>
+                    </a>
+                </div>
+                <div class="overview-image">
+                    <i data-lucide="shopping-cart"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solutions -->
+    <section class="solutions-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Our Ecommerce Solutions</h2>
+                <p class="section-description">Choose the right solution for your business needs</p>
+            </div>
+
+            <div class="solutions-grid">
+                <div class="solution-card">
+                    <div class="solution-icon">
+                        <i data-lucide="store"></i>
+                    </div>
+                    <h3>Starter Store</h3>
+                    <p>Perfect for small businesses just starting their online journey.</p>
+                    <ul class="solution-features">
+                        <li><i data-lucide="check"></i> Up to 50 products</li>
+                        <li><i data-lucide="check"></i> Payment integration</li>
+                        <li><i data-lucide="check"></i> Mobile responsive</li>
+                        <li><i data-lucide="check"></i> Basic analytics</li>
+                    </ul>
+                </div>
+                <div class="solution-card">
+                    <div class="solution-icon">
+                        <i data-lucide="building-2"></i>
+                    </div>
+                    <h3>Business Store</h3>
+                    <p>For growing businesses with more complex requirements.</p>
+                    <ul class="solution-features">
+                        <li><i data-lucide="check"></i> Unlimited products</li>
+                        <li><i data-lucide="check"></i> Multiple payment options</li>
+                        <li><i data-lucide="check"></i> Inventory management</li>
+                        <li><i data-lucide="check"></i> Customer accounts</li>
+                        <li><i data-lucide="check"></i> Discount & coupons</li>
+                    </ul>
+                </div>
+                <div class="solution-card">
+                    <div class="solution-icon">
+                        <i data-lucide="warehouse"></i>
+                    </div>
+                    <h3>Enterprise/Marketplace</h3>
+                    <p>Full-featured solution for large-scale operations.</p>
+                    <ul class="solution-features">
+                        <li><i data-lucide="check"></i> Multi-vendor support</li>
+                        <li><i data-lucide="check"></i> Advanced inventory</li>
+                        <li><i data-lucide="check"></i> API integrations</li>
+                        <li><i data-lucide="check"></i> Custom workflows</li>
+                        <li><i data-lucide="check"></i> Dedicated support</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Integrations -->
+    <section class="integrations-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Payment & Shipping Integrations</h2>
+                <p class="section-description">We integrate with all major payment gateways and shipping providers</p>
+            </div>
+
+            <div class="integrations-grid">
+                <div class="integration-item">
+                    <i data-lucide="credit-card"></i>
+                    <span>Razorpay</span>
+                </div>
+                <div class="integration-item">
+                    <i data-lucide="wallet"></i>
+                    <span>PayU</span>
+                </div>
+                <div class="integration-item">
+                    <i data-lucide="banknote"></i>
+                    <span>Paytm</span>
+                </div>
+                <div class="integration-item">
+                    <i data-lucide="landmark"></i>
+                    <span>UPI</span>
+                </div>
+                <div class="integration-item">
+                    <i data-lucide="truck"></i>
+                    <span>Shiprocket</span>
+                </div>
+                <div class="integration-item">
+                    <i data-lucide="package"></i>
+                    <span>Delhivery</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits -->
+    <section class="benefits-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Why Choose Our Ecommerce Solutions</h2>
+                <p class="section-description">Built for growth, designed for success</p>
+            </div>
+
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <i data-lucide="zap"></i>
+                    <h3>Fast & Secure</h3>
+                    <p>Optimized for speed with SSL encryption and secure checkout.</p>
+                </div>
+                <div class="benefit-card">
+                    <i data-lucide="trending-up"></i>
+                    <h3>Scalable</h3>
+                    <p>Grows with your business, from 10 to 10,000 products.</p>
+                </div>
+                <div class="benefit-card">
+                    <i data-lucide="search"></i>
+                    <h3>SEO Ready</h3>
+                    <p>Built-in SEO features to help customers find you online.</p>
+                </div>
+                <div class="benefit-card">
+                    <i data-lucide="headphones"></i>
+                    <h3>Ongoing Support</h3>
+                    <p>Dedicated support to help you succeed post-launch.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Ready to Go Online?</h2>
+            <p>Let's discuss your ecommerce goals and create a store that sells. Get a free consultation today.</p>
+            <a href="../index.html#contact" class="btn btn-primary btn-large">
+                Get Free Consultation
+                <i data-lucide="arrow-right"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <p>&copy; 2026 Raza Technology Services. All rights reserved.</p>
+                </div>
+            </div>
+            <div class="footer-tagline">
+                <p>Made with care in Pune, for the world.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+
+        // Navbar
+        const hamburger = document.getElementById('hamburger');
+        const mobileMenu = document.getElementById('mobileMenu');
+
+        hamburger.addEventListener('click', () => {
+            mobileMenu.classList.toggle('active');
+            hamburger.classList.toggle('active');
+        });
+
+        // Mobile dropdown
+        const mobileServicesToggle = document.getElementById('mobileServicesToggle');
+        const mobileServicesDropdown = document.getElementById('mobileServicesDropdown');
+
+        if (mobileServicesToggle && mobileServicesDropdown) {
+            mobileServicesToggle.addEventListener('click', () => {
+                mobileServicesToggle.classList.toggle('active');
+                mobileServicesDropdown.classList.toggle('active');
+            });
+        }
+    </script>
+</body>
+
+</html>

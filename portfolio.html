@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO Meta Tags -->
+    <title>Portfolio | Raza Technology Services - Our Work</title>
+    <meta name="description" content="View our portfolio of websites, mobile apps, and ecommerce solutions. See the quality of work Raza Technology Services delivers.">
+    <meta name="keywords" content="portfolio, web development projects, mobile apps, ecommerce, Pune">
+    <meta name="author" content="Raza Technology Services">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Portfolio | Raza Technology Services">
+    <meta property="og:description" content="View our portfolio of websites, mobile apps, and ecommerce solutions.">
+    <meta property="og:image" content="https://razatechnologyservices.com/rts.png">
+    <meta property="og:url" content="https://razatechnologyservices.com/portfolio.html">
+
+    <!-- Favicon -->
+    <link rel="icon" href="rts.png">
+    <link rel="apple-touch-icon" href="rts.png">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        /* Portfolio Page Specific Styles */
+        .portfolio-hero {
+            background: linear-gradient(135deg, #0F172A 0%, #1E293B 50%, #134E4A 100%);
+            padding: 160px 0 80px;
+            text-align: center;
+        }
+
+        .portfolio-hero h1 {
+            color: var(--accent-color);
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .portfolio-hero p {
+            color: #94A3B8;
+            font-size: 1.25rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .portfolio-section {
+            padding: 5rem 0;
+            background-color: var(--bg-light);
+        }
+
+        .filter-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 0.75rem 1.5rem;
+            border: 2px solid var(--primary-color);
+            border-radius: 50px;
+            background: transparent;
+            color: var(--primary-color);
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            background-color: var(--primary-color);
+            color: var(--accent-color);
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .portfolio-card {
+            background-color: var(--bg-white);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            transition: var(--transition);
+        }
+
+        .portfolio-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .portfolio-image {
+            height: 220px;
+            background: linear-gradient(135deg, #CCFBF1 0%, #99F6E4 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .portfolio-image svg {
+            width: 80px;
+            height: 80px;
+            color: var(--primary-color);
+            opacity: 0.5;
+        }
+
+        .portfolio-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .portfolio-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(13, 148, 136, 0.9);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .portfolio-card:hover .portfolio-overlay {
+            opacity: 1;
+        }
+
+        .portfolio-overlay a {
+            padding: 0.75rem 1.5rem;
+            background-color: var(--accent-color);
+            color: var(--primary-color);
+            border-radius: 8px;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .portfolio-overlay a:hover {
+            background-color: var(--secondary-color);
+            color: var(--accent-color);
+        }
+
+        .portfolio-content {
+            padding: 1.5rem;
+        }
+
+        .portfolio-category {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            background-color: var(--bg-light);
+            color: var(--primary-color);
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            margin-bottom: 0.75rem;
+        }
+
+        .portfolio-content h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-dark);
+        }
+
+        .portfolio-content p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .coming-soon-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: linear-gradient(135deg, var(--secondary-color) 0%, #334155 100%);
+            color: var(--accent-color);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .portfolio-card.coming-soon .portfolio-image {
+            filter: grayscale(50%);
+        }
+
+        .portfolio-card.coming-soon:hover .portfolio-overlay {
+            opacity: 0;
+        }
+
+        .cta-section {
+            padding: 5rem 0;
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            color: var(--accent-color);
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .cta-section p {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1.125rem;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+        }
+
+        .cta-section .btn-primary {
+            background-color: var(--accent-color);
+            color: var(--primary-color);
+        }
+
+        .cta-section .btn-primary:hover {
+            background-color: var(--secondary-color);
+            color: var(--accent-color);
+        }
+
+        @media (max-width: 768px) {
+            .portfolio-hero h1 {
+                font-size: 2.25rem;
+            }
+
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .filter-buttons {
+                gap: 0.5rem;
+            }
+
+            .filter-btn {
+                padding: 0.5rem 1rem;
+                font-size: 0.875rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav id="navbar" class="navbar scrolled">
+        <div class="container">
+            <div class="nav-content">
+                <a href="index.html" class="logo">
+                    <span class="logo-rts">RTS</span>
+                    <span class="logo-text">| Raza Technology Services</span>
+                </a>
+
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="index.html#home" class="nav-link">Home</a></li>
+                    <li><a href="index.html#about" class="nav-link">About</a></li>
+                    <li class="nav-item">
+                        <span class="nav-link nav-item-dropdown">
+                            Services
+                            <i data-lucide="chevron-down"></i>
+                        </span>
+                        <div class="dropdown-menu">
+                            <a href="services/website-development.html" class="dropdown-link">Website Development</a>
+                            <a href="services/mobile-app-development.html" class="dropdown-link">Mobile App Development</a>
+                            <a href="services/ecommerce-solutions.html" class="dropdown-link">Ecommerce Solutions</a>
+                            <a href="index.html#services" class="dropdown-link">All Services</a>
+                        </div>
+                    </li>
+                    <li><a href="portfolio.html" class="nav-link active">Portfolio</a></li>
+                    <li><a href="blog.html" class="nav-link">Blog</a></li>
+                    <li><a href="index.html#contact" class="nav-link">Contact</a></li>
+                </ul>
+
+                <button class="hamburger" id="hamburger" aria-label="Menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="index.html#home" class="mobile-link">Home</a>
+        <a href="index.html#about" class="mobile-link">About</a>
+        <div class="mobile-dropdown-toggle" id="mobileServicesToggle">
+            Services
+            <i data-lucide="chevron-down"></i>
+        </div>
+        <div class="mobile-dropdown" id="mobileServicesDropdown">
+            <a href="services/website-development.html" class="mobile-dropdown-link">Website Development</a>
+            <a href="services/mobile-app-development.html" class="mobile-dropdown-link">Mobile App Development</a>
+            <a href="services/ecommerce-solutions.html" class="mobile-dropdown-link">Ecommerce Solutions</a>
+            <a href="index.html#services" class="mobile-dropdown-link">All Services</a>
+        </div>
+        <a href="portfolio.html" class="mobile-link">Portfolio</a>
+        <a href="blog.html" class="mobile-link">Blog</a>
+        <a href="index.html#contact" class="mobile-link">Contact</a>
+    </div>
+
+    <!-- Portfolio Hero -->
+    <section class="portfolio-hero">
+        <div class="container">
+            <h1>Our Portfolio</h1>
+            <p>Explore our recent projects and see how we've helped businesses succeed online.</p>
+        </div>
+    </section>
+
+    <!-- Portfolio Grid -->
+    <section class="portfolio-section">
+        <div class="container">
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="website">Websites</button>
+                <button class="filter-btn" data-filter="app">Mobile Apps</button>
+                <button class="filter-btn" data-filter="ecommerce">Ecommerce</button>
+            </div>
+
+            <div class="portfolio-grid">
+                <!-- Project 1 - Flat/PG Management App -->
+                <div class="portfolio-card" data-category="app">
+                    <div class="portfolio-image">
+                        <i data-lucide="building"></i>
+                        <div class="portfolio-overlay">
+                            <a href="index.html#product">View Details</a>
+                        </div>
+                    </div>
+                    <div class="portfolio-content">
+                        <span class="portfolio-category">Mobile App</span>
+                        <h3>Flat/PG Management App</h3>
+                        <p>A comprehensive app for housing managers to track rent, maintenance, and tenant management in local languages.</p>
+                    </div>
+                </div>
+
+                <!-- Project 2 - RTS Website -->
+                <div class="portfolio-card" data-category="website">
+                    <div class="portfolio-image">
+                        <i data-lucide="globe"></i>
+                        <div class="portfolio-overlay">
+                            <a href="index.html">View Details</a>
+                        </div>
+                    </div>
+                    <div class="portfolio-content">
+                        <span class="portfolio-category">Website</span>
+                        <h3>RTS Corporate Website</h3>
+                        <p>Modern, responsive website with SEO optimization, contact forms, and service showcase for our own brand.</p>
+                    </div>
+                </div>
+
+                <!-- Coming Soon Projects -->
+                <div class="portfolio-card coming-soon" data-category="ecommerce">
+                    <div class="portfolio-image">
+                        <span class="coming-soon-badge">Coming Soon</span>
+                        <i data-lucide="shopping-bag"></i>
+                    </div>
+                    <div class="portfolio-content">
+                        <span class="portfolio-category">Ecommerce</span>
+                        <h3>Local Retail Store</h3>
+                        <p>Complete ecommerce solution for a Pune-based retail business with inventory management and delivery integration.</p>
+                    </div>
+                </div>
+
+                <div class="portfolio-card coming-soon" data-category="website">
+                    <div class="portfolio-image">
+                        <span class="coming-soon-badge">Coming Soon</span>
+                        <i data-lucide="briefcase"></i>
+                    </div>
+                    <div class="portfolio-content">
+                        <span class="portfolio-category">Website</span>
+                        <h3>Professional Services Firm</h3>
+                        <p>Corporate website with appointment booking, team profiles, and service catalog for a consulting firm.</p>
+                    </div>
+                </div>
+
+                <div class="portfolio-card coming-soon" data-category="app">
+                    <div class="portfolio-image">
+                        <span class="coming-soon-badge">Coming Soon</span>
+                        <i data-lucide="utensils"></i>
+                    </div>
+                    <div class="portfolio-content">
+                        <span class="portfolio-category">Mobile App</span>
+                        <h3>Restaurant Ordering App</h3>
+                        <p>Mobile app for a local restaurant chain with menu browsing, online ordering, and loyalty rewards.</p>
+                    </div>
+                </div>
+
+                <div class="portfolio-card coming-soon" data-category="ecommerce">
+                    <div class="portfolio-image">
+                        <span class="coming-soon-badge">Coming Soon</span>
+                        <i data-lucide="shirt"></i>
+                    </div>
+                    <div class="portfolio-content">
+                        <span class="portfolio-category">Ecommerce</span>
+                        <h3>Fashion Boutique Online</h3>
+                        <p>E-commerce platform for a fashion boutique with product variants, size guides, and secure checkout.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Want to Be Our Next Success Story?</h2>
+            <p>Let's discuss your project and create something amazing together.</p>
+            <a href="index.html#contact" class="btn btn-primary btn-large">
+                Start Your Project
+                <i data-lucide="arrow-right"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <p>&copy; 2026 Raza Technology Services. All rights reserved.</p>
+                </div>
+            </div>
+            <div class="footer-tagline">
+                <p>Made with care in Pune, for the world.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+
+        // Navbar
+        const hamburger = document.getElementById('hamburger');
+        const mobileMenu = document.getElementById('mobileMenu');
+
+        hamburger.addEventListener('click', () => {
+            mobileMenu.classList.toggle('active');
+            hamburger.classList.toggle('active');
+        });
+
+        // Mobile dropdown
+        const mobileServicesToggle = document.getElementById('mobileServicesToggle');
+        const mobileServicesDropdown = document.getElementById('mobileServicesDropdown');
+
+        if (mobileServicesToggle && mobileServicesDropdown) {
+            mobileServicesToggle.addEventListener('click', () => {
+                mobileServicesToggle.classList.toggle('active');
+                mobileServicesDropdown.classList.toggle('active');
+            });
+        }
+
+        // Portfolio Filter
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const portfolioCards = document.querySelectorAll('.portfolio-card');
+
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Update active button
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+
+                // Filter cards
+                const filter = button.dataset.filter;
+                portfolioCards.forEach(card => {
+                    if (filter === 'all' || card.dataset.category === filter) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>
