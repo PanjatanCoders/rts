@@ -417,7 +417,7 @@ callbackForm.addEventListener('submit', async (e) => {
 // Load configuration from config.js (not committed to GitHub)
 // If config.js doesn't exist, use fallback values
 const WEB3FORMS_ACCESS_KEY = typeof CONFIG !== 'undefined' ? CONFIG.WEB3FORMS_ACCESS_KEY : 'YOUR_WEB3FORMS_ACCESS_KEY';
-const YOUR_EMAIL = typeof CONFIG !== 'undefined' ? CONFIG.YOUR_EMAIL : 'razatechnologyservices@gmail.com';
+const YOUR_EMAIL = typeof CONFIG !== 'undefined' ? CONFIG.YOUR_EMAIL : 'connect@razatechservices.in';
 const WHATSAPP_NUMBER = typeof CONFIG !== 'undefined' ? CONFIG.WHATSAPP_NUMBER : '917030400093';
 const USE_WHATSAPP_FOR_TESTING = typeof CONFIG !== 'undefined' ? CONFIG.USE_WHATSAPP_FOR_TESTING : true;
 

@@ -15,7 +15,7 @@ const CONFIG = {
     WEB3FORMS_ACCESS_KEY: '3e8fe976-4af0-4fc8-9f71-72eade69775f',
 
     // Your Email Address
-    YOUR_EMAIL: 'razatechnologyservices@gmail.com',
+    YOUR_EMAIL: 'connect@razatechservices.in',
 
     // WhatsApp Number (without + or spaces, e.g., 917030400093)
     WHATSAPP_NUMBER: '917030400093',

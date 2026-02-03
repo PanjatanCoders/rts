@@ -115,7 +115,7 @@ Examples:
   - "Contact on WhatsApp" ✅
   - "Request Callback" ✅ (Opens professional modal)
 - Contact Form ✅ (Name, Email, Message)
-- Email: razatechnologyservices@gmail.com
+- Email: connect@razatechservices.in
 
 ### Callback Request Modal Features:
 - ✅ Name (required)
@@ -189,7 +189,7 @@ rts/
 
 **What happens:**
 - User fills callback form
-- Email sent to: razatechnologyservices@gmail.com
+- Email sent to: connect@razatechservices.in
 - WhatsApp used only as fallback
 
 ### Configuration Details
@@ -199,7 +199,7 @@ rts/
 const WEB3FORMS_ACCESS_KEY = '30259849-42ca-496f-859e-fb01429c5a39';
 
 // Your Email
-const YOUR_EMAIL = 'razatechnologyservices@gmail.com';
+const YOUR_EMAIL = 'connect@razatechservices.in';
 
 // WhatsApp Number
 const WHATSAPP_NUMBER = '917030400093';
@@ -304,7 +304,7 @@ const USE_WHATSAPP_FOR_TESTING = false;
 
 **File**: `script.js` lines 411-414
 ```javascript
-const YOUR_EMAIL = 'razatechnologyservices@gmail.com';
+const YOUR_EMAIL = 'connect@razatechservices.in';
 const WHATSAPP_NUMBER = '917030400093';
 ```
 
@@ -349,7 +349,7 @@ const WHATSAPP_NUMBER = '917030400093';
 
 ## 📞 Support & Contact
 
-- **Email**: razatechnologyservices@gmail.com
+- **Email**: connect@razatechservices.in
 - **Phone**: +91 70304 00093
 - **Location**: Pune, Maharashtra, India
 

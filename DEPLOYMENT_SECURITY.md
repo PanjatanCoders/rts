@@ -56,7 +56,7 @@ git push origin main
    - Add these variables:
      ```
      WEB3FORMS_ACCESS_KEY=30259849-42ca-496f-859e-fb01429c5a39
-     YOUR_EMAIL=razatechnologyservices@gmail.com
+     YOUR_EMAIL=connect@razatechservices.in
      WHATSAPP_NUMBER=917030400093
      USE_WHATSAPP_FOR_TESTING=false
      ```
@@ -243,7 +243,7 @@ If your API key accidentally gets pushed to GitHub:
 
 ### What's Protected:
 - 🔐 Web3Forms Access Key: `30259849-42ca-496f-859e-fb01429c5a39`
-- 🔐 Email: `razatechnologyservices@gmail.com`
+- 🔐 Email: `connect@razatechservices.in`
 - 🔐 WhatsApp: `917030400093`
 
 ---
@@ -293,7 +293,7 @@ If your API key accidentally gets pushed to GitHub:
 If you need help with deployment:
 - Check [QUICK_START.md](QUICK_START.md)
 - Check [README.md](README.md)
-- Email: razatechnologyservices@gmail.com
+- Email: connect@razatechservices.in
 
 ---
 
