@@ -499,7 +499,7 @@ Please call back at your earliest convenience!`;
 
 function initCountdownTimer() {
     // Set the offer end date (31st January 2026, 23:59:59)
-    const offerEndDate = new Date('2026-02-28T23:59:59').getTime();
+    const offerEndDate = new Date('2026-01-31T23:59:59').getTime();
 
     const timerElements = {
         days: document.getElementById('days'),
